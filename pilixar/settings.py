@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 
+
+SITE_ID=2
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -32,6 +34,18 @@ ALLOWED_HOSTS = []
 GOOGLE_SSO_ALLOWABLE_DOMAINS = ["gmail.com"]
 
 
+# sso setting
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        
+        "SCOPE":[
+            "profile",
+            "email"
+        ],
+        "AUTH_PARAMS":{"access_type":"online"}
+    }
+}
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -45,6 +59,13 @@ INSTALLED_APPS = [
     'myapp',
     #sso apps 
     "django_google_sso",  # Add django_google_sso
+    # tim 
+    'allauth',
+    'allauth.account',
+
+    # Optional -- requires install using `django-allauth[socialaccount]`.
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
 
 ]
 
@@ -56,6 +77,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # Add the account middleware:
+    "allauth.account.middleware.AccountMiddleware",
+
 ]
 
 ROOT_URLCONF = 'pilixar.urls'
@@ -134,3 +158,17 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 GOOGLE_SSO_CLIENT_ID = "407656182214-g391jr0lgt59u34810gpff2pobgpll01.apps.googleusercontent.com"
 GOOGLE_SSO_PROJECT_ID = "pilixar001"
 GOOGLE_SSO_CLIENT_SECRET = "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"
+
+
+AUTHENTICATION_BACKENDS = [
+    
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by email
+    'allauth.account.auth_backends.AuthenticationBackend',
+    
+]
+
+LOGIN_REDIRECT='/'
+LOGOUT_REDIRECT='/'

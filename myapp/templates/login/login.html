@@ -8,5 +8,8 @@
 <body>
     <h1>login page</h1>
     
+    {% load socialaccount  %}
+    <h2>Google Login</h2>
+    <a href="{%  provider_login_url 'google' %}?next=/">login to google</a>
 </body>
 </html>

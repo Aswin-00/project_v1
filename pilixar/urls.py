@@ -22,4 +22,6 @@ urlpatterns = [
     path('', include('myapp.urls')),
     #sso redirect u
     path("google_sso/", include("django_google_sso.urls", namespace="django_google_sso")),
+    path('accounts/', include('allauth.urls')),
+
 ]

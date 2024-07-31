@@ -4,3 +4,7 @@ Django==5.0.7
 django-google-sso ==6.3.0
 #python version
 python==3.11.9
+#for sso for sing and singup 
+django-alluth==64.0.0
+
+
