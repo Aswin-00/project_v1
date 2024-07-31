@@ -26,6 +26,8 @@ SECRET_KEY = 'django-insecure-2=el&uj2c60=5@a21akzn=j&tt^1zx9d+=2%tfd14-h(7crsq0
 DEBUG = True
 
 ALLOWED_HOSTS = []
+#sso setting
+GOOGLE_SSO_ALLOWABLE_DOMAINS = ["gmail.com"]
 
 
 # Application definition
@@ -37,6 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #my app
+    'myapp',
+    #sso apps 
+    "django_google_sso",  # Add django_google_sso
+
 ]
 
 MIDDLEWARE = [
@@ -121,3 +128,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+GOOGLE_SSO_CLIENT_ID = "407656182214-g391jr0lgt59u34810gpff2pobgpll01.apps.googleusercontent.com"
+GOOGLE_SSO_PROJECT_ID = "pilixar001"
+GOOGLE_SSO_CLIENT_SECRET = "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"
