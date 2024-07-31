@@ -25,6 +25,8 @@ SECRET_KEY = 'django-insecure-2=el&uj2c60=5@a21akzn=j&tt^1zx9d+=2%tfd14-h(7crsq0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
+
 ALLOWED_HOSTS = []
 #sso setting
 GOOGLE_SSO_ALLOWABLE_DOMAINS = ["gmail.com"]
