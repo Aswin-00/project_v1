@@ -11,9 +11,10 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+from . import  key_sec 
 
 
-SITE_ID=2
+SITE_ID=3
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -155,9 +156,9 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-GOOGLE_SSO_CLIENT_ID = "407656182214-g391jr0lgt59u34810gpff2pobgpll01.apps.googleusercontent.com"
-GOOGLE_SSO_PROJECT_ID = "pilixar001"
-GOOGLE_SSO_CLIENT_SECRET = "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"
+GOOGLE_SSO_CLIENT_ID = key_sec.GOOGLE_SSO_CLIENT_ID
+GOOGLE_SSO_PROJECT_ID =   key_sec.GOOGLE_SSO_PROJECT_ID
+GOOGLE_SSO_CLIENT_SECRET =key_sec.GOOGLE_SSO_CLIENT_SECRET
 
 
 AUTHENTICATION_BACKENDS = [
