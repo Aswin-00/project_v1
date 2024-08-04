@@ -1,8 +1,10 @@
 from django.shortcuts import render,redirect 
 # logoutn
 from django.contrib.auth import logout
-from form  import ImageUploadForm
-from model import Image 
+from .forms  import ImageUploadForm
+from .models import Image 
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic.edit import CreateView
 
 
 

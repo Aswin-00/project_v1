@@ -79,16 +79,15 @@
 
                 <!-- Upload user images -->
                 <div class="upload-section">
-                    <h3>Upload Your Images</h3>
-                    <form method="POST" enctype="multipart/form-data" action='uploadimage/'>
-                        {% csrf_token %}
-                        <input type="file" name="image" accept="image/*" required>
-                        <button type="submit">Upload</button>
-                    </form>
+                    {% include "uploadimage.html" %}
+
+
+
+
                 </div>
 
             </div>
-        {% else %}
+            {% else %}
             {% load socialaccount %}
             <div class="login">
                 <h2>Login with Google</h2>
