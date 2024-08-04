@@ -70,7 +70,7 @@
                 <div class="image-gallery">
                     {% for image in user_images %}
                         <div class="image-item">
-                            <img src="{{ image.url }}" alt="{{ image.title }}">
+                            <img src="{{ image.image.url }}" alt="{{ image.title }}">
                         </div>
                     {% empty %}
                         <p>No images found. Start uploading your images below!</p>

@@ -10,7 +10,7 @@ from django.views.generic.edit import CreateView
 
 # Create your views here.
 def index(request):
-    user_images = Image.objects.filter(user=request.user).order_by('-uploaded_at')
+    user_images = Image.objects.all().order_by('-uploaded_at')
     context={
         "user_images":user_images,
     }

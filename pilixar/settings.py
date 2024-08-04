@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-from . import  key_sec 
+from . import key_sec 
 import os
 
 SITE_ID=3
@@ -67,6 +67,8 @@ INSTALLED_APPS = [
     # Optional -- requires install using `django-allauth[socialaccount]`.
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    #s3 
+    'storages',
 
 ]
 
@@ -174,3 +176,21 @@ AUTHENTICATION_BACKENDS = [
 LOGIN_REDIRECT='/'
 LOGOUT_REDIRECT='/'
 
+AWS_ACCESS_KEY_ID = 'AKIAZ7WYITJ6LZ4W5DGN'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'mediauploaddjango'
+AWS_S3_SIGNATURE_NAME = 's3v4'
+AWS_S3_REGION_NAME = 'ap-southeast-2'
+AWS_S3_FILE_OVERWRITE = False
+AWS_S3_VERITY = True
+
+AWS_S3_CUSTOM_DOMAIN = f"{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com"
+
+AWS_DEFAULT_ACL = 'public-read'
+AWS_QUERYSTRING_AUTH = False
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+AWS_DEFAULT_ACL = None  # Set to None to not send any ACL
+
+MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
