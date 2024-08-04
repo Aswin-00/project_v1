@@ -1,11 +1,11 @@
 #django version
 Django
 #sso version
-django-google-sso ==6.3.0
+django-google-sso
 #python version
 #python==3.11.9
 #for sso for sing and singup 
-django-alluth==64.0.0
+django-alluth
 django-storages 
 boto3
 
