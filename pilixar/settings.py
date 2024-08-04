@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 from . import  key_sec 
-
+import os
 
 SITE_ID=3
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
